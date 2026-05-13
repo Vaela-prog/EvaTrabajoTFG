@@ -349,14 +349,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621626584}
-  - component: {fileID: 621626585}
   m_Layer: 0
   m_Name: GestorFicha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &621626584
 Transform:
   m_ObjectHideFlags: 0
@@ -372,19 +371,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &621626585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621626583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f82ce6d11b0faf4bac8072e05bd8222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FichaPrueba
-  fichaPrefab: {fileID: 1073029315426349558, guid: d4326575f7237d7489eaf8a6ebc77b38, type: 3}
 --- !u!1 &764420175
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &764420176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1659653768}
   - component: {fileID: 1659653769}
+  - component: {fileID: 1659653770}
   m_Layer: 0
   m_Name: Tablero
   m_TagString: Untagged
@@ -508,6 +495,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tablero
   casillaPrefab: {fileID: 1721461877044913129, guid: a6f68e2ba41c2ae469ed42790b8e45f6, type: 3}
   porcentajeAlturaPantalla: 0.8
+--- !u!114 &1659653770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659653767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e2f1584fc946a41a4dead45c0bba92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TableroVisual
+  rey_blanco: {fileID: 8769083127549457650, guid: e6f5809e64371d044b08324f255bc0d6, type: 3}
+  rey_negro: {fileID: 2865712605872355782, guid: 026fd53d56664ed45b3b47d0b95d7ed0, type: 3}
+  dama_blanca: {fileID: 2635793528758652331, guid: de078139610af1144bf1e2b5a2d5d1f8, type: 3}
+  dama_negra: {fileID: 875586865805981759, guid: fa3aee51f3bac6447a42fefaad258215, type: 3}
+  alfil_blanco: {fileID: 493150279801628122, guid: 6010b3c66b5cc4a4596e4a8353130014, type: 3}
+  alfil_negro: {fileID: 6575792479811895908, guid: 39e949f14db74ad43a13cd2eee7042f7, type: 3}
+  caballo_blanco: {fileID: 8215557121716646004, guid: 23219baed3777e743b18f63050330003, type: 3}
+  caballo_negro: {fileID: 84261205058021311, guid: 998cfb405a474784a898360ee3cc3b3f, type: 3}
+  torre_blanca: {fileID: 5013903104791264149, guid: 8e8228064f265d64cbd7245a666bb447, type: 3}
+  torre_negra: {fileID: 7065052734008901551, guid: a4cb3f0ce6ea66b4ea0e12c7a650efdb, type: 3}
+  peon_blanco: {fileID: 8510974061171267423, guid: f34ed626b71860c49a3bb1ba4dde5a82, type: 3}
+  peon_negro: {fileID: 1252883351417243640, guid: 1ad9c746029329a479b027b8e737fc81, type: 3}
+  piezaPrefabPorDefecto: {fileID: 6809426783797689394, guid: 97a3ecd272846d64c90a5cc0cb4968e4, type: 3}
+  porcentajeAlturaPantalla: 0.8
+  colorCasillaSeleccionada: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  colorMovimientoValido: {r: 0, g: 1, b: 0, a: 1}
+  grosorBordeSeleccion: 0.05
+  grosorBordeMovimiento: 0.045
+  aplicarColorTemporalPiezas: 0
+  colorPiezaBlanca: {r: 0.95, g: 0.95, b: 0.95, a: 1}
+  colorPiezaNegra: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  textoTurnoUI: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

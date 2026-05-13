@@ -1,13 +1,13 @@
 using UnityEngine;
 
 
-
+[DefaultExecutionOrder(-50)]
 public class Tablero : MonoBehaviour
 {
     // Prefab de una casilla (un sprite cuadrado con SpriteRenderer)
     public GameObject casillaPrefab;
 
-    // Porcentaje de la altura de la pantalla que ocupará el tablero (0.1 = 10%, 1 = 100%)
+    // Porcentaje de la vista (altura y ancho) que ocupará como máximo el tablero; se usa el menor para que quepa en móvil/tablet/ultrapanorámico.
     [Range(0.1f, 1f)]
     public float porcentajeAlturaPantalla = 0.8f; // 80% por defecto
 
@@ -25,14 +25,15 @@ public class Tablero : MonoBehaviour
     {
         Camera cam = Camera.main;
 
-        // Altura del mundo visible por la cámara ortográfica
         float alturaMundo = 2f * cam.orthographicSize;
+        float anchoMundo = alturaMundo * cam.aspect;
 
-        // El tablero ocupa un porcentaje de esa altura
         float alturaTablero = alturaMundo * porcentajeAlturaPantalla;
+        float anchoTablero = anchoMundo * porcentajeAlturaPantalla;
 
-        // Como el tablero es de 8x8, dividimos esa altura entre 8 para obtener el tamaño de una casilla
-        tamañoCasilla = alturaTablero / 8f;
+        float desdeAltura = alturaTablero / 8f;
+        float desdeAncho = anchoTablero / 8f;
+        tamañoCasilla = Mathf.Min(desdeAltura, desdeAncho);
     }
 
     // Genera las 64 casillas del tablero
@@ -67,11 +68,23 @@ public class Tablero : MonoBehaviour
                 SpriteRenderer sr = casilla.GetComponent<SpriteRenderer>();
 
                 // Alternar colores 
-                bool esNegra = (x + y) % 2 == 1;
+                bool esNegra = (x + y) % 2 == 0;
                 sr.color = esNegra ? Color.black : Color.white;
 
                 // Ajustamos la escala de la casilla para que ocupe exactamente el tamaño calculado
                 casilla.transform.localScale = new Vector3(tamañoCasilla, tamañoCasilla, 1f);
+
+                // Vinculamos la casilla visual con su posicion logica para detectar clics.
+                CasillaView casillaView = casilla.GetComponent<CasillaView>();
+                if (casillaView == null)
+                {
+                    casillaView = casilla.AddComponent<CasillaView>();
+                }
+
+                TableroVisual tableroVisual = GetComponent<TableroVisual>();
+                Vector2Int posLogic = new Vector2Int(x, y);
+                casillaView.Inicializar(posLogic, tableroVisual);
+                tableroVisual.RegistrarCasillaView(posLogic, casillaView);
             }
         }
     }
