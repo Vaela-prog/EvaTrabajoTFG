@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-Library/
-Temp/
-UsserSettings/
-Logs/
-
-
-=======
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
@@ -112,4 +104,3 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
->>>>>>> f58717afa1855f99411c006e3d3c9580288cd612
